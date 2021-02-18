@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    BrowserAnimationsModule, // required animations module
+    BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 4000,
       progressBar: true,
@@ -25,9 +26,12 @@ import { ToastrModule } from 'ngx-toastr';
       progressAnimation: "decreasing",
       preventDuplicates: true,
       positionClass: "toast-bottom-left"
-    }) // ToastrModule added
+    }),
+    NgxSpinnerModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule {
+}
